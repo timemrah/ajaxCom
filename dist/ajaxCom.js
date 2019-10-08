@@ -1,5 +1,7 @@
-
 function ajaxCom(url, method, data, progressCallback){
+
+
+    method = method || 'POST';
 
 
     console.log('ajaxCom -> Send | '+url);

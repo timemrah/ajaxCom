@@ -85,7 +85,7 @@ class ajaxCom
     }
 
 
-    public static function addHtml($selector, $html){
+    public static function innerHtml($selector, $html){
         self::$html[$selector] = $html;
     }
     public static function addClass($selector, $class){
@@ -121,12 +121,12 @@ class ajaxCom
 
 
     public static function isInvalidDOM($inputSel, $helperSel, $helperText){
-        self::addHtml($helperSel, $helperText);
+        self::innerHtml($helperSel, $helperText);
         self::addClass($inputSel, 'is-invalid');
         self::$isError = true;
     }
     public static function isValidDOM($inputSel, $helperSel){
-        self::addHtml($helperSel, '');
+        self::innerHtml($helperSel, '');
         self::removeClass($inputSel, 'is-invalid');
     }
 

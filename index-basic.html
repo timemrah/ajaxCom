@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AjaxCom - Basic Demo</title>
+</head>
+<body>
+
+
+
+
+<button id="ajaxCom-send-btn">ajaxCom Basic Demo</button>
+<h4 id="msg"></h4>
+
+
+
+
+<script src="dist/ajaxCom.js"></script>
+<script>
+
+    let ajaxComSendBtn = document.getElementById('ajaxCom-send-btn');
+
+    ajaxComSendBtn.addEventListener('click', e => {
+
+
+
+        //Ajax start on ajaxCom
+        ajaxCom('ajax-response-basic.php').then(json => {
+
+            console.log(json); //Look at the console for available json data
+
+            if(json.status !== true){
+
+                //Do something for the fail..
+
+                return false;
+            }
+
+            //Do something for the success..
+
+        });
+        //Ajax start on ajaxCom//
+
+
+
+
+    });
+
+</script>
+</body>
+</html>

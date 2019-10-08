@@ -36,7 +36,7 @@ if( 32 < strlen($password) || strlen($password) < 6 ){
 if(ajaxCom::$isError){
 
     //Set to show the message on any DOM element
-    //ajaxCom::addHtml('#ajaxCom-alert', 'Please check the form');
+    //ajaxCom::innerHtml('#ajaxCom-alert', 'Please check the form');
 
     //Echo json data with alert
     //ajaxCom::false('anyCode', 'Browser Alert -> Please check the form');
@@ -47,13 +47,13 @@ if(ajaxCom::$isError){
 } else{
 
     //Set to show the message on any DOM element
-    //ajaxCom::addHtml('#ajaxCom-alert', 'Login successful');
+    //ajaxCom::innerHtml('#ajaxCom-alert', 'Login successful');
 
     //Set direct
     ajaxCom::direct('login-success.html');
 
     //Echo json data with alert
-    ajaxCom::true('anyCode', 'Login successful', ['username' => $username]);
+    ajaxCom::true('anyTrueCode', 'Login successful', ['username' => $username]);
 
     //Echo json data without alert
     //ajaxCom::quietTrue('anyCode', null, ['username' => $username]);
