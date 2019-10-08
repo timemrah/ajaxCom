@@ -1,6 +1,6 @@
 <?php //PHP 7.2+
 
-require 'ajaxCom.php';
+require 'dist/ajaxCom.php';
 
 
 $dbUsername = 'admin';
