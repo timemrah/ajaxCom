@@ -1,0 +1,2 @@
+.is-invalid{ color: red; border-color: red; }
+.is-valid{ color: inherit; border-color: inherit; }

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajaxCom Demo</title>
+    <link href="ajaxCom.css" type="text/css" rel="stylesheet" />
+    <style type="text/css" rel="stylesheet">
+        body{ font-family: sans-serif; font-size: 1rem; margin: 0; }
+        form{ width: 50%; margin: auto; margin-top: 10%; }
+        form > div{ margin-bottom: 1rem; }
+        label{ display: inline-block; margin-bottom: 0.3rem; font-weight: bold; }
+        input{ width: 100%; padding: 10px; }
+        button{ padding: 10px 20px; }
+        small{ color: red; }
+        #ajaxCom-alert{ font-size: 1.5rem; margin-bottom: 1rem; text-align: center; }
+    </style>
+
+</head>
+<body>
+
+
+
+
+
+<form id="ajaxCom-test-form" action="ajax-receive.php" method="post">
+
+    <!-- Require for ajaxCom -->
+    <div id="ajaxCom-alert"></div>
+    <!-- //Require for ajaxCom -->
+
+    <div>
+        <label>Username</label><br />
+        <input id="usernameInput" name="username">
+        <small id="usernameHelper"></small>
+    </div>
+    <div>
+        <label>Password</label><br />
+        <input id="passwordInput" name="password">
+        <small id="passwordHelper"></small>
+    </div>
+    <div>
+        <button>Login</button>
+    </div>
+</form>
+
+
+
+<script src="ajaxCom.js"></script>
+<script>
+
+
+    let form = document.getElementById('ajaxCom-test-form');
+
+
+    //Form submit event handler
+    form.addEventListener('submit', e => { e.preventDefault();
+
+
+
+        //Ajax start on ajaxCom
+        ajaxCom(form.action, form.method, new FormData(form)).then(json => {
+
+            console.log(json); //Check the json data to console
+
+            if(json.status !== true){
+
+                //Do something for the fail..
+
+                return false;
+            }
+
+            //Do something for the success..
+
+        });
+        //Ajax start//
+
+
+
+
+    });
+    //Form submit event handler//
+
+
+
+</script>
+</body>
+</html>
