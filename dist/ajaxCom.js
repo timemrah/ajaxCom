@@ -1,7 +1,7 @@
 function ajaxCom(url, method, data, progressCallback){
 
 
-    method = method || 'POST';
+    method = method || 'POST'; //Set default method
 
 
     console.log('ajaxCom -> Send | '+url);
@@ -105,9 +105,7 @@ function ajaxCom(url, method, data, progressCallback){
             console.log('ajaxCom -> Send | '+url+' | Error: '+responseJson.msg);
             reject(e);
         };
-        xHttp.onabort = e => {
-
-        };
+        xHttp.onabort = e => { };
         xHttp.open(method, url);
         xHttp.send(data);
 
