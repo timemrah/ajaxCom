@@ -27,6 +27,8 @@ function ajaxCom(url, method, data, progressCallback){
         };
 
 
+
+
         //Ajax receive
         xHttp.onload = e => {
 
@@ -81,7 +83,7 @@ function ajaxCom(url, method, data, progressCallback){
             }
 
             if(responseJson.alert === true){
-                document.getElementById('ajaxCom-alert').innerHTML = responseJson.msg;
+                alert(responseJson.msg);
             }
 
             console.log('ajaxCom <- Receive | '+url+' | Msg: '+responseJson.msg);
@@ -89,6 +91,8 @@ function ajaxCom(url, method, data, progressCallback){
 
         };
         //Ajax receive//
+
+
 
 
         xHttp.onerror = e => {

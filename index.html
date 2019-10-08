@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <title>ajaxCom Demo</title>
     <link href="ajaxCom.css" type="text/css" rel="stylesheet" />
+
+    <!-- Not required for ajaxCom -->
     <style type="text/css" rel="stylesheet">
-        body{ font-family: sans-serif; font-size: 1rem; margin: 0; }
-        form{ width: 50%; margin: auto; margin-top: 10%; }
-        form > div{ margin-bottom: 1rem; }
-        label{ display: inline-block; margin-bottom: 0.3rem; font-weight: bold; }
-        input{ width: 100%; padding: 10px; }
-        button{ padding: 10px 20px; }
-        small{ color: red; }
+        body       { font-family: sans-serif; font-size: 1rem; margin: 0; }
+        form       { width: 50%; max-width: 400px; min-width: 300px; margin: auto; margin-top: 10%; }
+        form > div { margin-bottom: 1rem; }
+        label      { display: inline-block; margin-bottom: 0.3rem; font-weight: bold; }
+        input      { width: 100%; padding: 10px; }
+        button     { padding: 10px 20px; }
+        small      { color: red; }
         #ajaxCom-alert{ font-size: 1.5rem; margin-bottom: 1rem; text-align: center; }
     </style>
+    <!-- //Not required for ajaxCom -->
 
 </head>
 <body>
@@ -21,12 +24,11 @@
 
 
 
-
 <form id="ajaxCom-test-form" action="ajax-receive.php" method="post">
 
-    <!-- Require for ajaxCom -->
+
     <div id="ajaxCom-alert"></div>
-    <!-- //Require for ajaxCom -->
+
 
     <div>
         <label>Username</label><br />
@@ -35,13 +37,14 @@
     </div>
     <div>
         <label>Password</label><br />
-        <input id="passwordInput" name="password">
+        <input id="passwordInput" name="password" type="password">
         <small id="passwordHelper"></small>
     </div>
     <div>
         <button>Login</button>
     </div>
 </form>
+
 
 
 
@@ -57,10 +60,11 @@
 
 
 
+
         //Ajax start on ajaxCom
         ajaxCom(form.action, form.method, new FormData(form)).then(json => {
 
-            console.log(json); //Check the json data to console
+            console.log(json); //Look at the console for available json data
 
             if(json.status !== true){
 
@@ -71,15 +75,20 @@
 
             //Do something for the success..
 
+        }).catch(e => {
+
+            //Do something for the ajaxCom Json Parse Fatal Error..
+
+        }).finally(() => {
+
         });
-        //Ajax start//
+        //Ajax start on ajaxCom//
 
 
 
 
     });
     //Form submit event handler//
-
 
 
 </script>
