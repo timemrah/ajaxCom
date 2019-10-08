@@ -42,7 +42,7 @@ if(ajaxCom::$isError){
     //ajaxCom::false('anyCode', 'Browser Alert -> Please check the form');
 
     //Echo json data without alert
-    ajaxCom::quietFalse('anyFalseCode');
+    //ajaxCom::quietFalse('anyFalseCode');
 
 } else{
 

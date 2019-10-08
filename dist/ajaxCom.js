@@ -37,15 +37,18 @@ function ajaxCom(url, method, data, progressCallback){
             try{
                 responseJson = JSON.parse(e.target.responseText);
             } catch(e){
+                //If the data that comes with ajax is not json
                 console.log('ajaxCom <- Receive | '+url+' | Error: The data received from the server is not a json object!');
+                alert('Unknown server error!');
+                reject(e);
                 return false;
             }
 
-            //Ajax ile gelen veride bir hata varsa
+            //If there is an error in the data that comes with Ajax
             if(responseJson === undefined || responseJson.status === undefined){
                 console.log('ajaxCom <- Receive | '+url+' | Error: Data from server is illegal!');
-                awAlert.error('<p><strong>Üzgünüz,</strong> Sunucudan gelen veri hatalı!</p>');
-                reject(e);
+                alert('Unknown server error!');
+                reject('Data from server is illegal!');
                 return false;
             }
 
@@ -82,6 +85,7 @@ function ajaxCom(url, method, data, progressCallback){
                 }
             }
 
+            //if alert is requested
             if(responseJson.alert === true){
                 alert(responseJson.msg);
             }
