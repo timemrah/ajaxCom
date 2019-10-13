@@ -3,19 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>AjaxCom - Basic Demo</title>
+    <!-- Not required for ajaxCom -->
+    <style>
+        #msg{ padding: 10px; border: 1px solid red; }
+        .bold{ font-weight: bold;}
+    </style>
+    <!-- /Not required for ajaxCom -->
 </head>
 <body>
 
 
 
+<p>
+    <button id="ajaxCom-send-btn">ajaxCom Basic Demo</button>
+</p>
 
-<button id="ajaxCom-send-btn">ajaxCom Basic Demo</button>
-<h4 id="msg"></h4>
+<span class="bold">Msg Area</span>
+<div id="msg"></div>
 
 
 
 
-<script src="dist/ajaxCom.js"></script>
+<script src="../dist/ajaxCom.js"></script>
 <script>
 
     let ajaxComSendBtn = document.getElementById('ajaxCom-send-btn');
@@ -25,7 +34,7 @@
 
 
         //Ajax start on ajaxCom
-        ajaxCom('index-basic-response.php').then(json => {
+        ajaxCom('../demoAjaxResponse/index-response.php').then(json => {
 
             console.log(json); //Look at the console for available json data
 

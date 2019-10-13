@@ -11,22 +11,7 @@ function ajaxCom(url, method, data, progressCallback){
     return new Promise((resolve, reject) => {
 
 
-        let xHttp = new XMLHttpRequest();
-
-
-        //loading
-        xHttp.onprogress = oEvent => {
-
-            if (oEvent.lengthComputable){
-                let percentComplete = oEvent.loaded / oEvent.total * 100;
-                if(typeof progressCallback === 'function'){
-                    progressCallback(percentComplete);
-                }
-            } else {
-                //Unable to compute progress information since the total size is unknown
-            }
-
-        };
+        let xHttp  = new XMLHttpRequest();
 
 
 
