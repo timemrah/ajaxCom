@@ -1,22 +1,21 @@
-# ajaxCom
+#####Demo: http://sizeait.com/ajaxCom/index.html , http://sizeait.com/ajaxCom/index-basic.html
 
-#### Nedir?
-Ajax işlemleri sonucunda PHP sunucusunun tarayıcı üzerinde basit değişiklikler yapabilmesini sağlar.
+# What is ajaxCom 
+A simple way to manage the browser as a result of the Ajax process by the PHP server.
 
-#### Bunun için;
-* Önce tarayıcı tarafında javascript içerisinde **ajaxCom** ile ajax işlemi başlatılır ve sunucudan **ajaxCom** kuralına uygun cevap bekler. Bu işlemin normal ajax işlemi ile hiç bir farkı yoktur. **ajaxCom** sunucudan kendi kuralına uygun cevabı bekler.
-* Sonra ajax işlemine cevap verecek olan sunucudaki PHP sayfasında **ajaxCom** nesnesi ile cevap verilir.
-* Sunucu tarafındaki ajaxCom tarayıcı tarafındaki ajaxCom ile anlaşarak ajax sonucunda tarayıcıda basit değişiklikler yapılmasına olanak tanır.
+It's not enough for us to check the form entries on the browser side, and we check the data on the server side. Then we can only control the server and manage the browser.
 
-#### Sunucudaki ajaxCom'un tarayıcıda yapabildikleri nelerdir?
-###### Ajax işlemi sonucunda; 
-* Tarayıcı istenilen adrese yönlendirilebilir.
+ajaxCom provides server-side javascript controls.
 
-Backend (PHP) < > frontend(Javascript) ajax communication tool.
+**More information will be added.**
 
-A simple way to manage the Ajax process result by the PHP server.
+---
 
-If we already make the necessary form controls on the front-end side, we have to do the same controls with the back-end. Also, we don't just do ajax for the form. We need this structure when we want to manage Ajax results simply on the server side.
+#### ajaxCom Nedir?
+Ajax işlemleri sonucunda PHP sunucusu ile tarayıcıyı yönetmenin basit bir yolu.
 
-Demo: http://sizeait.com/ajaxCom , http://sizeait.com/ajaxCom/index-basic.html
-
+Tarayıcı tarafında form girişlerini kontrol etmemiz yeterli gelmiyor ve sunucu tarafında da bu verileri kontrol ediyoruz. O zaman sadece sunucu ile kontrol sağlayıp tarayıcıyı yönetebiliriz.
+ 
+ ajaxCom sunucu tarafında javascript kontrolleri sağlar.
+ 
+ **Daha falza bilgi eklenecektir.**

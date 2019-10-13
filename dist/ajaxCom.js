@@ -15,11 +15,11 @@ function ajaxCom(url, method, data, progressCallback){
 
 
         //loading
-        xHttp.onprogress = (oEvent) => {
+        xHttp.onprogress = oEvent => {
 
-            if (oEvent.lengthComputable) {
+            if (oEvent.lengthComputable){
                 let percentComplete = oEvent.loaded / oEvent.total * 100;
-                if(progressCallback !== undefined){
+                if(typeof progressCallback === 'function'){
                     progressCallback(percentComplete);
                 }
             } else {
@@ -41,7 +41,6 @@ function ajaxCom(url, method, data, progressCallback){
             } catch(e){
                 //If the data that comes with ajax is not json
                 console.log('ajaxCom <- Receive | '+url+' | Error: The data received from the server is not a json object!');
-                alert('Unknown server error!');
                 reject(e);
                 return false;
             }
@@ -49,7 +48,6 @@ function ajaxCom(url, method, data, progressCallback){
             //If there is an error in the data that comes with Ajax
             if(responseJson === undefined || responseJson.status === undefined){
                 console.log('ajaxCom <- Receive | '+url+' | Error: Data from server is illegal!');
-                alert('Unknown server error!');
                 reject('Data from server is illegal!');
                 return false;
             }
