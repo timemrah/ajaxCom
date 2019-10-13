@@ -1,4 +1,5 @@
-Demo https://timemrah.github.io/ajaxCom/
+Demo1: http://sizeait.com/ajaxCom/
+Demo2: http://sizeait.com/ajaxCom/index-basic.html
 
 ## What is ajaxCom 
 A simple way to manage the browser as a result of the Ajax process by the PHP server.
