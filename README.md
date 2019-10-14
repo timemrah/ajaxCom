@@ -6,13 +6,11 @@ Demo: http://sizeait.com/ajaxCom/
 ---
 
 ## What is ajaxCom 
+**ajaxCom provides server-side javascript controls.**
+
 A simple way to manage the browser as a result of the Ajax process by the PHP server.
 
 It's not enough for us to check the form entries on the browser side, and we check the data on the server side. Then we can only control the server and manage the browser.
-
-ajaxCom provides server-side javascript controls.
-
-**More information will be added.**
 
 ### Code Example
     ajaxCom(url, method, data, progressCallback or DOM).then( json => {
@@ -24,16 +22,16 @@ ajaxCom provides server-side javascript controls.
                         
     }).catch(e => { }).finally(() => { });
 
+**More information will be added.**
+
 ---
 
 ## ajaxCom Nedir?
+**ajaxCom sunucu tarafında javascript kontrolleri sağlar.**
+
 Ajax işlemleri sonucunda PHP sunucusu ile tarayıcıyı yönetmenin basit bir yolu.
 
 Tarayıcı tarafında form girişlerini kontrol etmemiz yeterli gelmiyor ve sunucu tarafında da bu verileri kontrol ediyoruz. O zaman sadece sunucu ile kontrol sağlayıp tarayıcıyı yönetebiliriz.
- 
-ajaxCom sunucu tarafında javascript kontrolleri sağlar.
- 
-**Daha falza bilgi eklenecektir.**
 
 ### Kod Örneği
     ajaxCom(url, method, data, progressCallback or DOM).then( json => {
@@ -44,3 +42,5 @@ ajaxCom sunucu tarafında javascript kontrolleri sağlar.
         yazabilirsiniz. */
                         
     }).catch(e => { }).finally(() => { });
+    
+**Daha falza bilgi eklenecektir.**
