@@ -1,4 +1,4 @@
-function ajaxCom(url, method, data, progressCallback){
+function ajaxCom(url, method, data, progressCallbackDOM){
 
 
     method = method || 'POST'; //Set default method
@@ -7,11 +7,46 @@ function ajaxCom(url, method, data, progressCallback){
     console.log('ajaxCom -> Send | '+url);
 
 
+    let xHttp  = new XMLHttpRequest();
+
+
+
+
+
     //Promise
     return new Promise((resolve, reject) => {
 
 
-        let xHttp  = new XMLHttpRequest();
+        //Loading Progresses
+        xHttp.onprogress = e => {
+            if (e.lengthComputable) {
+
+                let percentComplete = e.loaded / e.total * 100;
+
+                if(typeof progressCallbackDOM === "function"){
+                    //If progressCallbackDOM is callback function
+                    progressCallbackDOM(percentComplete);
+                } else if(progressCallbackDOM !== undefined && progressCallbackDOM.nodeType === 1){
+                    //If progressCallbackDOM is DOM Element
+                    progressCallbackDOM.style.width = percentComplete+'%';
+                }
+            }
+        };
+        xHttp.upload.onprogress = e => {
+            if (e.lengthComputable) {
+
+                let percentComplete = e.loaded / e.total * 100;
+
+                if(typeof progressCallbackDOM === "function"){
+                    //If progressCallbackDOM is callback function
+                    progressCallbackDOM(percentComplete);
+                } else if(progressCallbackDOM !== undefined && progressCallbackDOM.nodeType === 1){
+                    //If progressCallbackDOM is DOM Element
+                    progressCallbackDOM.style.width = percentComplete+'%';
+                }
+            }
+        };
+        //Loading Progresses//
 
 
 
@@ -85,10 +120,10 @@ function ajaxCom(url, method, data, progressCallback){
 
 
         xHttp.onerror = e => {
-            console.log('ajaxCom -> Send | '+url+' | Error: '+responseJson.msg);
+            console.log('ajaxCom -> Error: | '+url);
             reject(e);
         };
-        xHttp.onabort = e => { };
+        //xHttp.onabort = e => { };
         xHttp.open(method, url);
         xHttp.send(data);
 

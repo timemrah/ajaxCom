@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ajaxCom Login Demo</title>
+    <title>ajaxCom Upload Demo</title>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -17,6 +17,7 @@
         button     { padding: 10px 20px; }
         small      { color: red; }
         #ajaxCom-alert{ font-size: 1.5rem; margin-bottom: 1rem; text-align: center; }
+        #progressBar{ display: inline-block; height: 10px; width: 0%; background-color: blue; transition-duration: 0.1s; }
     </style>
     <!-- //Not required for ajaxCom -->
 
@@ -30,23 +31,21 @@
 
 
 
-<form id="ajaxCom-test-form" action="../demoAjaxResponse/login-response.php" method="post">
+<form id="ajaxCom-test-form" action="../demoAjaxResponse/upload-response.php" method="post">
 
     <div id="ajaxCom-alert"></div>
 
     <div>
-        <label>Username</label><br />
-        <input id="usernameInput" name="username">
-        <small id="usernameHelper"></small>
+        <label>Select Image</label><br />
+        <input id="imageInput" name="image" type="file" accept="image/*" multiple>
+        <small id="imageHelper"></small>
     </div>
     <div>
-        <label>Password</label><br />
-        <input id="passwordInput" name="password" type="password">
-        <small id="passwordHelper"></small>
+        <button>Upload</button>
     </div>
-    <div>
-        <button>Login</button>
-    </div>
+
+    <div id="progressBar"></div>
+
 
 </form>
 
@@ -56,25 +55,31 @@
 <script src="../dist/ajaxCom.js"></script>
 <script>
 
-
-    let form = document.getElementById('ajaxCom-test-form');
-
+    //DOM access
+    let $form = document.getElementById('ajaxCom-test-form');
+    let $progressBar = document.getElementById('progressBar');
+    let $image = document.getElementById('imageInput');
 
     //Form submit event handler
-    form.addEventListener('submit', e => { e.preventDefault();
+    $form.addEventListener('submit', e => { e.preventDefault();
 
+        //If the send button was pressed without selecting an image.
+        if($image.files.length < 1){
+            alert('Please select the image');
+            $image.click();
+            return false;
+        }
 
-
+        //We instantiate the FormData class and retrieve file data.
+        let formData   = new FormData($form);
 
         //Ajax start on ajaxCom
-        ajaxCom(form.action, form.method, new FormData(form)).then(json => {
+        ajaxCom($form.action, $form.method, new FormData($form), $progressBar).then(json => {
 
             console.log(json); //Look at the console for available json data
 
             if(json.status !== true){
-
                 //Do something for the fail..
-
                 return false;
             }
 
@@ -87,11 +92,10 @@
 
         }).finally(() => {
 
+            //Do something for always..
+
         });
         //Ajax start on ajaxCom//
-
-
-
 
     });
     //Form submit event handler//
