@@ -73,7 +73,7 @@
         let formData   = new FormData($form);
 
         //Ajax start on ajaxCom
-        ajaxCom($form.action, $form.method, new FormData($form), $progressBar).then(json => {
+        ajaxCom($form.action, $form.method, formData, $progressBar).then(json => {
 
             console.log(json); //Look at the console for available json data
 
