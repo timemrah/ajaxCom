@@ -14,14 +14,14 @@ It's not enough for us to check the form entries on the browser side, and we che
 
 ### Front End Ajax Request Code Example
 ```javascript
-    ajaxCom(url, method, data, progressCallback or DOM).then( json => {
-        
-        /* The Ajax process was successfully completed and 
-        PHP requests were forwarded to the browser.
-        The browser performed these commands. 
-        Now you can write what you want to do except for server commands. */
-                        
-    }).catch(e => { }).finally(() => { });
+ajaxCom(url, method, data, progressCallback or DOM).then( json => {
+    
+    /* The Ajax process was successfully completed and 
+    PHP requests were forwarded to the browser.
+    The browser performed these commands. 
+    Now you can write what you want to do except for server commands. */
+                    
+}).catch(e => { }).finally(() => { });
 ```
 
 ### Back End Response of Ajax PHP Code Example
@@ -51,14 +51,14 @@ Tarayıcı tarafında form girişlerini kontrol etmemiz yeterli gelmiyor ve sunu
 
 ### Front End Ajax İsteği Kod Örneği
 ```javascript
-    ajaxCom(url, method, data, progressCallback or DOM).then( json => {
-        
-        /* Ajax işlemi başarıyla tamamlandı ve PHP istekleri 
-        tarayıcıya iletildi. Tarayıcı bu komutları yerine getirdi. 
-        Artık sunucu komutları dışında ne yapmak istediğinizi
-        yazabilirsiniz. */
-                        
-    }).catch(e => { }).finally(() => { });
+ajaxCom(url, method, data, progressCallback or DOM).then( json => {
+    
+    /* Ajax işlemi başarıyla tamamlandı ve PHP istekleri 
+    tarayıcıya iletildi. Tarayıcı bu komutları yerine getirdi. 
+    Artık sunucu komutları dışında ne yapmak istediğinizi
+    yazabilirsiniz. */
+                    
+}).catch(e => { }).finally(() => { });
 ```
 
 ### Back End Ajax Cevabı PHP Kod Örneği
