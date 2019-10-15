@@ -42,49 +42,33 @@ ajaxCom::addClass('#elmID', 'is-valid');
 //Positive Ajax Response with Alert
 ajaxCom::true('statusCode', 'alert message', 'data');
 ```
-    
-    
+
+##Available Back End Methods
+```php
+//DOM Process
+ajaxCom::innerHtml('selector', 'html or text string');
+
+ajaxCom::addClass('selector', 'className');
+ajaxCom::removeClass('selector', 'className');
+
+ajaxCom::setAttr('selector', 'attrName', 'attrValue');
+ajaxCom::removeAttr('selector', 'attrName');
+ 
+//Assign 'is-valid' class name to the inputSelector and put the helperText into the helperSelector
+ajaxCom::isValidDOM('inputSelector', 'helperSelector', 'helperText');
+ajaxCom::isInvalidDOM('inputSelector', 'helperSelector');
+
+
+//Browser Forwarding
+ajaxCom::direct('urlAdress');
+
+
+//Ajax Response With JSON
+ajaxCom::true('statusCode', 'msg', data); //Positive ajax response with alert
+ajaxCom::quietTrue('statusCode', 'msg', data); //Positive ajax response without alert
+
+ajaxCom::false('statusCode', 'msg', data); //Negative ajax response with alert
+ajaxCom::quietFalse('statusCode', 'msg', data); //Negative ajax response without alert
+```
 
 **More information will be added.**
-
----
-
-## ajaxCom Nedir?
-**ajaxCom sunucu tarafında javascript kontrolleri sağlar.**
-
-Ajax işlemleri sonucunda PHP sunucusu ile tarayıcıyı yönetmenin basit bir yolu.
-
-Tarayıcı tarafında form girişlerini kontrol etmemiz yeterli gelmiyor ve sunucu tarafında da bu verileri kontrol ediyoruz. O zaman sadece sunucu ile kontrol sağlayıp tarayıcıyı yönetebiliriz.
-
-### Front End Ajax İsteği Kod Örneği
-```javascript
-ajaxCom(url, method, data, progressCallbackOrDOM).then( json => {
-    
-    /* Ajax işlemi başarıyla tamamlandı ve PHP istekleri 
-    tarayıcıya iletildi. Tarayıcı bu komutları yerine getirdi. 
-    Artık sunucu komutları dışında ne yapmak istediğinizi
-    yazabilirsiniz. */
-    
-    if(json.status === false){
-        //Olumsuz durumda birşeyler yap..
-        return false;
-    }
-    
-    //Olumlu durumda birşeyler yap..
-                    
-}).catch(e => { }).finally(() => { });
-```
-
-### Back End Ajax Cevabı PHP Kod Örneği
-```php
-require 'ajaxCom.php';
-
-//Javascript işlemlerini ajax yanıtı için ayarlıyoruz.
-ajaxCom::innerHTML('#elmID', 'Html and text string');
-ajaxCom::addClass('#elmID', 'is-valid');
-
-//Olumlu Ajax Yanıtı Alert ile Beraber
-ajaxCom::true('statusCode', 'alert message', 'data');
-```
-
-**Daha falza bilgi eklenecektir.**
