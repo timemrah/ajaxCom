@@ -14,13 +14,20 @@ It's not enough for us to check the form entries on the browser side, and we che
 
 ### Front End Ajax Request Code Example
 ```javascript
-ajaxCom(url, method, data, progressCallback or DOM).then( json => {
+ajaxCom(url, method, data, progressCallbackOrDOM).then( json => {
     
     /* The Ajax process was successfully completed and 
     PHP requests were forwarded to the browser.
     The browser performed these commands. 
     Now you can write what you want to do except for server commands. */
-                    
+
+    if(json.status === false){
+        //Do something negative..
+        return false;
+    }
+    
+    //Do something positive..
+
 }).catch(e => { }).finally(() => { });
 ```
 
@@ -32,7 +39,7 @@ require 'ajaxCom.php';
 ajaxCom::innerHTML('#elmID', 'Html and text string');
 ajaxCom::addClass('#elmID', 'is-valid');
 
-//Ajax Response
+//Positive Ajax Response with Alert
 ajaxCom::true('statusCode', 'alert message', 'data');
 ```
     
@@ -51,12 +58,19 @@ Tarayıcı tarafında form girişlerini kontrol etmemiz yeterli gelmiyor ve sunu
 
 ### Front End Ajax İsteği Kod Örneği
 ```javascript
-ajaxCom(url, method, data, progressCallback or DOM).then( json => {
+ajaxCom(url, method, data, progressCallbackOrDOM).then( json => {
     
     /* Ajax işlemi başarıyla tamamlandı ve PHP istekleri 
     tarayıcıya iletildi. Tarayıcı bu komutları yerine getirdi. 
     Artık sunucu komutları dışında ne yapmak istediğinizi
     yazabilirsiniz. */
+    
+    if(json.status === false){
+        //Olumsuz durumda birşeyler yap..
+        return false;
+    }
+    
+    //Olumlu durumda birşeyler yap..
                     
 }).catch(e => { }).finally(() => { });
 ```
@@ -69,7 +83,7 @@ require 'ajaxCom.php';
 ajaxCom::innerHTML('#elmID', 'Html and text string');
 ajaxCom::addClass('#elmID', 'is-valid');
 
-//Ajax Yanıtı
+//Olumlu Ajax Yanıtı Alert ile Beraber
 ajaxCom::true('statusCode', 'alert message', 'data');
 ```
 

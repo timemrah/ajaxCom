@@ -6,16 +6,16 @@ class ajaxCom
 
 
 
-    private static
+    public static
         $html = null,
-        $addClass = null,
-        $removeClass = null,
-        $direct = null;
+        $class = null,
+        $setAttr = null,
+        $removeAttr = null,
+        $direct = null,
+        $isError = false;
 
-    public static $isError = false;
 
-
-    public static function true($statusCode = null, $msg = null, $data = null){
+    static function true($statusCode = null, $msg = null, $data = null){
 
         echo json_encode([
             'alert'  => true,
@@ -24,15 +24,16 @@ class ajaxCom
             'msg'    => $msg,
             'data'   => $data,
             'html'   => self::$html,
-            'addClass' => self::$addClass,
-            'removeClass' => self::$removeClass,
+            'class' => self::$class,
+            'setAttr' => self::$setAttr,
+            'removeAttr' => self::$removeAttr,
             'direct' => self::$direct
         ]);
 
     }
 
 
-    public static function quietTrue($statusCode = null, $msg = null, $data = null){
+    static function quietTrue($statusCode = null, $msg = null, $data = null){
 
         $json = json_encode([
             'alert'  => false,
@@ -41,8 +42,9 @@ class ajaxCom
             'msg'    => $msg,
             'data'   => $data,
             'html'   => self::$html,
-            'addClass' => self::$addClass,
-            'removeClass' => self::$removeClass,
+            'class' => self::$class,
+            'setAttr' => self::$setAttr,
+            'removeAttr' => self::$removeAttr,
             'direct' => self::$direct
         ]);
 
@@ -50,7 +52,7 @@ class ajaxCom
     }
 
 
-    public static function false($statusCode = null, $msg = null, $data = null){
+    static function false($statusCode = null, $msg = null, $data = null){
 
         echo json_encode([
             'alert'  => true,
@@ -59,15 +61,16 @@ class ajaxCom
             'msg'    => $msg,
             'data'   => $data,
             'html'   => self::$html,
-            'addClass' => self::$addClass,
-            'removeClass' => self::$removeClass,
+            'class' => self::$class,
+            'setAttr' => self::$setAttr,
+            'removeAttr' => self::$removeAttr,
             'direct' => self::$direct
         ]);
 
     }
 
 
-    public static function quietFalse($statusCode = null, $msg = null, $data = null){
+    static function quietFalse($statusCode = null, $msg = null, $data = null){
 
         $json = json_encode([
             'alert'  => false,
@@ -76,8 +79,9 @@ class ajaxCom
             'msg'    => $msg,
             'data'   => $data,
             'html'   => self::$html,
-            'addClass' => self::$addClass,
-            'removeClass' => self::$removeClass,
+            'class' => self::$class,
+            'setAttr' => self::$setAttr,
+            'removeAttr' => self::$removeAttr,
             'direct' => self::$direct
         ]);
 
@@ -85,53 +89,40 @@ class ajaxCom
     }
 
 
-    public static function innerHtml($selector, $html){
+    static function innerHtml($selector, $html){
         self::$html[$selector] = $html;
     }
-    public static function addClass($selector, $class){
-        self::$addClass[$selector] = $class;
-        unset(self::$removeClass[$selector]);
+    static function addClass($selector, $class){
+        self::$class[$selector][$class] = 'add';
     }
-    public static function removeClass($selector, $class){
-        self::$removeClass[$selector] = $class;
-        unset(self::$addClass[$selector]);
+    static function removeClass($selector, $class){
+        self::$class[$selector][$class] = 'remove';
     }
-
-
-    public static function clearHtmlRecords(){
-        self::$html = [];
+    static function unsetClass($selector, $class){
+        unset(self::$class[$selector][$class]);
     }
-    public static function clearAddClassRecords(){
-        self::$addClass = [];
+    static function setAttr($selector, $name, $value){
+        self::$setAttr[$selector][$name] = $value;
+        unset(self::$removeAttr[$selector][$name]);
     }
-    public static function clearRemoveClassRecords(){
-        self::$removeClass = [];
+    static function removeAttr($selector, $name){
+        self::$removeAttr[$selector][$name] = false;
+        unset(self::$setAttr[$selector][$name]);
     }
 
 
-    public static function isEmptyHtml(){
-        return empty(self::$html);
-    }
-    public static function isEmptyAddClass(){
-        return empty(self::$addClass);
-    }
-    public static function isEmptyRemoveClass(){
-        return empty(self::$removeClass);
-    }
-
-
-    public static function isInvalidDOM($inputSel, $helperSel, $helperText){
+    static function isInvalidDOM($inputSel, $helperSel, $helperText){
         self::innerHtml($helperSel, $helperText);
         self::addClass($inputSel, 'is-invalid');
         self::$isError = true;
     }
-    public static function isValidDOM($inputSel, $helperSel){
+    static function isValidDOM($inputSel, $helperSel){
         self::innerHtml($helperSel, '');
         self::removeClass($inputSel, 'is-invalid');
     }
 
 
-    public static function direct($href){
+    static function direct($href){
         self::$direct = $href;
         return true;
     }

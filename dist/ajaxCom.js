@@ -54,8 +54,6 @@ function ajaxCom(url, method, data, progressCallbackDOM){
         //Ajax receive
         xHttp.onload = e => {
 
-            let responseJson = {};
-
             try{
                 responseJson = JSON.parse(e.target.responseText);
             } catch(e){
@@ -87,21 +85,55 @@ function ajaxCom(url, method, data, progressCallbackDOM){
                 }
             }
 
-            //Add Class to DOM
-            if(responseJson.addClass !== undefined){
-                for(let i in responseJson.addClass){
-                    let elmSelector = i;
-                    let className = responseJson.addClass[i];
-                    document.querySelector(elmSelector).classList.add(className);
+            //Add and Remove Class From DOM
+            if(responseJson.class !== undefined){
+                for(let i in responseJson.class){
+                    let selector = i;
+                    let selectorClassList = responseJson.class[i];
+
+                    for(let i in selectorClassList){
+                        let className = i;
+                        let process = selectorClassList[i];
+
+                        if(process === 'add'){
+                            document.querySelector(selector).classList.add(className);
+                        } else{
+                            document.querySelector(selector).classList.remove(className);
+                        }
+                    }
                 }
             }
 
-            //Remove Class from DOM
-            if(responseJson.removeClass !== undefined){
-                for(let i in responseJson.removeClass){
-                    let elmSelector = i;
-                    let className = responseJson.removeClass[i];
-                    document.querySelector(elmSelector).classList.remove(className);
+            //Set Attribute to DOM
+            if(responseJson.setAttr !== undefined){
+                for(let i in responseJson.setAttr){
+
+                    let selector = i;
+                    let selectorAttrList = responseJson.setAttr[i];
+
+                    for(let i in selectorAttrList){
+
+                        let attrName = i;
+                        let attrValue = selectorAttrList[i];
+                        document.querySelector(selector).setAttribute(attrName, attrValue);
+
+                    }
+                }
+            }
+
+            //Remove Attribute to DOM
+            if(responseJson.removeAttr !== undefined){
+                for(let i in responseJson.removeAttr){
+
+                    let selector = i;
+                    let selectorAttrList = responseJson.removeAttr[i];
+
+                    for(let i in selectorAttrList){
+
+                        let attrName = i;
+                        document.querySelector(selector).removeAttribute(attrName);
+
+                    }
                 }
             }
 
