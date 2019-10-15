@@ -54,7 +54,7 @@ ajaxCom::removeClass('selector', 'className');
 ajaxCom::setAttr('selector', 'attrName', 'attrValue');
 ajaxCom::removeAttr('selector', 'attrName');
  
-//Assign 'is-valid' class name to the inputSelector and put the helperText into the helperSelector
+//Add or Remove 'is-invalid' class name to the inputSelector and put the helperText into the helperSelector
 ajaxCom::isValidDOM('inputSelector', 'helperSelector', 'helperText');
 ajaxCom::isInvalidDOM('inputSelector', 'helperSelector');
 
