@@ -65,11 +65,11 @@ ajaxCom(url, method, data, progressCallback or DOM).then( json => {
 ```php
 require 'ajaxCom.php';
 
-//Set javascript process for ajax response
+//Javascript işlemlerini ajax yanıtı için ayarlıyoruz.
 ajaxCom::innerHTML('#elmID', 'Html and text string');
 ajaxCom::addClass('#elmID', 'is-valid');
 
-//Ajax Response
+//Ajax Yanıtı
 ajaxCom::true('statusCode', 'alert message', 'data');
 ```
 
