@@ -12,7 +12,8 @@ A simple way to manage the browser as a result of the Ajax process by the PHP se
 
 It's not enough for us to check the form entries on the browser side, and we check the data on the server side. Then we can only control the server and manage the browser.
 
-### Code Example
+### Front End Ajax Request Code Example
+```javascript
     ajaxCom(url, method, data, progressCallback or DOM).then( json => {
         
         /* The Ajax process was successfully completed and 
@@ -21,6 +22,21 @@ It's not enough for us to check the form entries on the browser side, and we che
         Now you can write what you want to do except for server commands. */
                         
     }).catch(e => { }).finally(() => { });
+```
+
+### Back End Response of Ajax PHP Code Example
+```php
+require 'ajaxCom.php';
+
+//Set javascript process for ajax response
+ajaxCom::innerHTML('#elmID', 'Html and text string');
+ajaxCom::addClass('#elmID', 'is-valid');
+
+//Ajax Response
+ajaxCom::true('statusCode', 'alert message', 'data');
+```
+    
+    
 
 **More information will be added.**
 
@@ -33,7 +49,7 @@ Ajax işlemleri sonucunda PHP sunucusu ile tarayıcıyı yönetmenin basit bir y
 
 Tarayıcı tarafında form girişlerini kontrol etmemiz yeterli gelmiyor ve sunucu tarafında da bu verileri kontrol ediyoruz. O zaman sadece sunucu ile kontrol sağlayıp tarayıcıyı yönetebiliriz.
 
-### Kod Örneği
+### Front End Ajax İsteği Kod Örneği
     ajaxCom(url, method, data, progressCallback or DOM).then( json => {
         
         /* Ajax işlemi başarıyla tamamlandı ve PHP istekleri 
@@ -43,4 +59,16 @@ Tarayıcı tarafında form girişlerini kontrol etmemiz yeterli gelmiyor ve sunu
                         
     }).catch(e => { }).finally(() => { });
     
+### Back End Ajax Cevabı PHP Kod Örneği
+```php
+require 'ajaxCom.php';
+
+//Set javascript process for ajax response
+ajaxCom::innerHTML('#elmID', 'Html and text string');
+ajaxCom::addClass('#elmID', 'is-valid');
+
+//Ajax Response
+ajaxCom::true('statusCode', 'alert message', 'data');
+```
+
 **Daha falza bilgi eklenecektir.**
