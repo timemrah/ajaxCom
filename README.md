@@ -43,7 +43,7 @@ ajaxCom::addClass('#elmID', 'is-valid');
 ajaxCom::true('statusCode', 'alert message', 'data');
 ```
 
-##Available Back End Methods
+### Available Back End Methods
 ```php
 //DOM Process
 ajaxCom::innerHtml('selector', 'html or text string');
