@@ -50,6 +50,7 @@ Ajax işlemleri sonucunda PHP sunucusu ile tarayıcıyı yönetmenin basit bir y
 Tarayıcı tarafında form girişlerini kontrol etmemiz yeterli gelmiyor ve sunucu tarafında da bu verileri kontrol ediyoruz. O zaman sadece sunucu ile kontrol sağlayıp tarayıcıyı yönetebiliriz.
 
 ### Front End Ajax İsteği Kod Örneği
+```javascript
     ajaxCom(url, method, data, progressCallback or DOM).then( json => {
         
         /* Ajax işlemi başarıyla tamamlandı ve PHP istekleri 
@@ -58,7 +59,8 @@ Tarayıcı tarafında form girişlerini kontrol etmemiz yeterli gelmiyor ve sunu
         yazabilirsiniz. */
                         
     }).catch(e => { }).finally(() => { });
-    
+```
+
 ### Back End Ajax Cevabı PHP Kod Örneği
 ```php
 require 'ajaxCom.php';

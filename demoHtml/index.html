@@ -25,6 +25,8 @@
 <body>
 
 
+
+
 <div class="container">
 
     <button id="ajaxCom-send-btn">ajaxCom Basic Demo</button><br /><br />
@@ -34,6 +36,7 @@
 
     <br />
     <a href="../index.html"><< Back to Home</a>
+
 </div>
 
 
@@ -47,25 +50,19 @@
     ajaxComSendBtn.addEventListener('click', e => {
 
 
-
         //Ajax start on ajaxCom
         ajaxCom('../demoAjaxResponse/index-response.php').then(json => {
 
+            //Ajax response
             console.log(json); //Look at the console for available json data
 
             if(json.status !== true){
-
-                //Do something for the fail..
-
-                return false;
+                //Do something ajax response status value false..
             }
 
-            //Do something for the success..
+            //Do something ajax response status value true..
 
         });
-        //Ajax start on ajaxCom//
-
-
 
 
     });

@@ -69,14 +69,10 @@
 <script src="../dist/ajaxCom.js"></script>
 <script>
 
-
     let form = document.getElementById('ajaxCom-test-form');
-
 
     //Form submit event handler
     form.addEventListener('submit', e => { e.preventDefault();
-
-
 
 
         //Ajax start on ajaxCom
@@ -85,30 +81,17 @@
             console.log(json); //Look at the console for available json data
 
             if(json.status !== true){
-
-                //Do something for the fail..
-
-                return false;
+                //Do something ajax response status value false..
             }
 
-            //Do something for the success..
+            //Do something ajax response status value true..
 
         }).catch(e => {
-
-            //Do something for the ajaxCom Json Fatal Error..
-            console.log(e);
-
-        }).finally(() => {
-
+            //Do something for the ajaxCom json fatal error..
         });
-        //Ajax start on ajaxCom//
-
-
 
 
     });
-    //Form submit event handler//
-
 
 </script>
 </body>
