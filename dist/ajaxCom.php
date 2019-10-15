@@ -4,8 +4,6 @@
 class ajaxCom
 {
 
-
-
     public static
         $html = null,
         $class = null,
@@ -16,76 +14,66 @@ class ajaxCom
 
 
     static function true($statusCode = null, $msg = null, $data = null){
-
         echo json_encode([
-            'alert'  => true,
-            'status' => true,
-            'code'   => $statusCode,
-            'msg'    => $msg,
-            'data'   => $data,
-            'html'   => self::$html,
-            'class' => self::$class,
-            'setAttr' => self::$setAttr,
+            'alert'      => true,
+            'status'     => true,
+            'statusCode' => $statusCode,
+            'msg'        => $msg,
+            'data'       => $data,
+            'html'       => self::$html,
+            'class'      => self::$class,
+            'setAttr'    => self::$setAttr,
             'removeAttr' => self::$removeAttr,
-            'direct' => self::$direct
+            'direct'     => self::$direct
         ]);
-
     }
 
 
     static function quietTrue($statusCode = null, $msg = null, $data = null){
-
-        $json = json_encode([
-            'alert'  => false,
-            'status' => true,
-            'code'   => $statusCode,
-            'msg'    => $msg,
-            'data'   => $data,
-            'html'   => self::$html,
-            'class' => self::$class,
-            'setAttr' => self::$setAttr,
+        echo json_encode([
+            'alert'      => false,
+            'status'     => true,
+            'statusCode' => $statusCode,
+            'msg'        => $msg,
+            'data'       => $data,
+            'html'       => self::$html,
+            'class'      => self::$class,
+            'setAttr'    => self::$setAttr,
             'removeAttr' => self::$removeAttr,
-            'direct' => self::$direct
+            'direct'     => self::$direct
         ]);
-
-        echo $json;
     }
 
 
     static function false($statusCode = null, $msg = null, $data = null){
-
         echo json_encode([
-            'alert'  => true,
-            'status' => false,
-            'code'   => $statusCode,
-            'msg'    => $msg,
-            'data'   => $data,
-            'html'   => self::$html,
-            'class' => self::$class,
-            'setAttr' => self::$setAttr,
+            'alert'      => true,
+            'status'     => false,
+            'statusCode' => $statusCode,
+            'msg'        => $msg,
+            'data'       => $data,
+            'html'       => self::$html,
+            'class'      => self::$class,
+            'setAttr'    => self::$setAttr,
             'removeAttr' => self::$removeAttr,
-            'direct' => self::$direct
+            'direct'     => self::$direct
         ]);
-
     }
 
 
     static function quietFalse($statusCode = null, $msg = null, $data = null){
-
-        $json = json_encode([
-            'alert'  => false,
-            'status' => false,
-            'code'   => $statusCode,
-            'msg'    => $msg,
-            'data'   => $data,
-            'html'   => self::$html,
-            'class' => self::$class,
-            'setAttr' => self::$setAttr,
+        echo json_encode([
+            'alert'      => false,
+            'status'     => false,
+            'statusCode' => $statusCode,
+            'msg'        => $msg,
+            'data'       => $data,
+            'html'       => self::$html,
+            'class'      => self::$class,
+            'setAttr'    => self::$setAttr,
             'removeAttr' => self::$removeAttr,
-            'direct' => self::$direct
+            'direct'     => self::$direct
         ]);
-
-        echo $json;
     }
 
 

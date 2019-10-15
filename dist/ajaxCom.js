@@ -1,16 +1,10 @@
 function ajaxCom(url, method, data, progressCallbackDOM){
 
-
     method = method || 'POST'; //Set default method
-
 
     console.log('ajaxCom -> Send | '+url);
 
-
     let xHttp  = new XMLHttpRequest();
-
-
-
 
 
     //Promise
@@ -47,8 +41,6 @@ function ajaxCom(url, method, data, progressCallbackDOM){
             }
         };
         //Loading Progresses//
-
-
 
 
         //Ajax receive
@@ -107,16 +99,13 @@ function ajaxCom(url, method, data, progressCallbackDOM){
             //Set Attribute to DOM
             if(responseJson.setAttr !== undefined){
                 for(let i in responseJson.setAttr){
-
                     let selector = i;
                     let selectorAttrList = responseJson.setAttr[i];
 
                     for(let i in selectorAttrList){
-
                         let attrName = i;
                         let attrValue = selectorAttrList[i];
                         document.querySelector(selector).setAttribute(attrName, attrValue);
-
                     }
                 }
             }
@@ -149,8 +138,6 @@ function ajaxCom(url, method, data, progressCallbackDOM){
         //Ajax receive//
 
 
-
-
         xHttp.onerror = e => {
             console.log('ajaxCom -> Error: | '+url);
             reject(e);
@@ -159,9 +146,7 @@ function ajaxCom(url, method, data, progressCallbackDOM){
         xHttp.open(method, url);
         xHttp.send(data);
 
-
     });
     //Promise//
-
 
 }
