@@ -62,6 +62,11 @@ function ajaxCom(url, method, data, progressCallbackDOM){
                 return false;
             }
 
+            //if alert is required
+            if(responseJson.alert === true){
+                alert(responseJson.msg);
+            }
+
             //Direct
             if(responseJson.direct !== undefined && responseJson.direct !== null){
                 window.location = responseJson.direct;
@@ -113,22 +118,14 @@ function ajaxCom(url, method, data, progressCallbackDOM){
             //Remove Attribute to DOM
             if(responseJson.removeAttr !== undefined){
                 for(let i in responseJson.removeAttr){
-
                     let selector = i;
                     let selectorAttrList = responseJson.removeAttr[i];
 
                     for(let i in selectorAttrList){
-
                         let attrName = i;
                         document.querySelector(selector).removeAttribute(attrName);
-
                     }
                 }
-            }
-
-            //if alert is requested
-            if(responseJson.alert === true){
-                alert(responseJson.msg);
             }
 
             console.log('ajaxCom <- Receive | '+url+' | Msg: '+responseJson.msg);

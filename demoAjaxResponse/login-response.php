@@ -14,20 +14,44 @@ $password = $_POST['password'] ?? '';
 
 //Username Validation
 if( 50 < strlen($username) || strlen($username) < 4 ){
-    ajaxCom::isInvalidDOM('#usernameInput','#usernameHelper','The username can be between 4 and 50 characters at most!');
+
+    ajaxCom::invalidDOM(
+        '#usernameInput','#usernameHelper',
+        'The username can be between 4 and 50 characters at most!'
+    );
+
 } elseif($username !== $dbUsername){
-    ajaxCom::isInvalidDOM('#usernameInput','#usernameHelper','The username is incorrect.');
+
+    ajaxCom::invalidDOM(
+        '#usernameInput','#usernameHelper',
+        'The username is incorrect.'
+    );
+
 } else{
-    ajaxCom::isValidDOM('#usernameInput','#usernameHelper');
+
+    ajaxCom::validDOM('#usernameInput','#usernameHelper');
+
 }
 
 //Password Validation
 if( 32 < strlen($password) || strlen($password) < 6 ){
-    ajaxCom::isInvalidDOM('#passwordInput','#passwordHelper','The password can be at least 6 and at most 32 characters!');
+
+    ajaxCom::invalidDOM(
+        '#passwordInput','#passwordHelper',
+        'The password can be at least 6 and at most 32 characters!'
+    );
+
 } elseif($password !== $dbPassword){
-    ajaxCom::isInvalidDOM('#passwordInput','#passwordHelper','The password is incorrect.');
+
+    ajaxCom::invalidDOM(
+        '#passwordInput','#passwordHelper',
+        'The password is incorrect.'
+    );
+
 } else{
-    ajaxCom::isValidDOM('#passwordInput','#passwordHelper');
+
+    ajaxCom::validDOM('#passwordInput','#passwordHelper');
+
 }
 
 
@@ -42,18 +66,21 @@ if(ajaxCom::$isError){
     //ajaxCom::false('anyCode', 'Browser Alert -> Please check the form');
 
     //Echo json data without alert
-    ajaxCom::quietFalse('anyFalseCode');
+    ajaxCom::false();
 
 } else{
 
     //Set to show the message on any DOM element
     //ajaxCom::innerHtml('#ajaxCom-alert', 'Login successful');
 
+    //Set show msg to alert
+    ajaxCom::alert(true);
+
     //Set direct
     ajaxCom::direct('login-success.html');
 
     //Echo json data with alert
-    ajaxCom::true('anyTrueCode', 'Login successful', ['username' => $username]);
+    ajaxCom::true('Login successful');
 
     //Echo json data without alert
     //ajaxCom::quietTrue('anyCode', null, ['username' => $username]);
