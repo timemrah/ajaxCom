@@ -39,8 +39,8 @@ require 'ajaxCom.php';
 ajaxCom::innerHTML('#elmID', 'Html and text string');
 ajaxCom::addClass('#elmID', 'is-valid');
 
-//Positive Ajax Response with Alert
-ajaxCom::true('statusCode', 'alert message', 'data');
+//Positive Ajax Response
+ajaxCom::true('message', 'statusCode', 'data');
 ```
 
 ### Available Back End Methods
@@ -62,13 +62,12 @@ ajaxCom::isInvalidDOM('inputSelector', 'helperSelector');
 //Browser Forwarding
 ajaxCom::direct('urlAdress');
 
+//Alert Setting
+ajaxCom::alert(boolean);
 
 //Ajax Response With JSON
 ajaxCom::true('statusCode', 'msg', data); //Positive ajax response with alert
-ajaxCom::quietTrue('statusCode', 'msg', data); //Positive ajax response without alert
-
 ajaxCom::false('statusCode', 'msg', data); //Negative ajax response with alert
-ajaxCom::quietFalse('statusCode', 'msg', data); //Negative ajax response without alert
 ```
 
 **More information will be added.**
